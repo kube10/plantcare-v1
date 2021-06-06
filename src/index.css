@@ -1,13 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
 body {
+  font-family: "Lato", sans-serif;
+  color: #404e4d;
+  font-size: 16px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h3 {
+  font-size: 26px;
+}
+
+.container {
+  max-width: 753px;
+}
+
+.btn {
+  height: auto;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0rem;
+  line-height: 20px;
+  padding: 8px 12px;
+}
+
+.primary {
+  border-radius: 32px;
+  background-color: #4dbd33;
+  color: white;
+  padding: 12px 16px;
+  border-color: #4dbd33;
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.24);
+}
+
+.circle {
+  padding: 12px;
+  line-height: 1em;
+}
+
+.primary:hover {
+  background-color: #469c32;
+  color: white;
+  border-color: #469c32;
+}
+
+.primary:focus {
+  border-color: #469c32;
+  background-color: #469c32;
+  color: white;
+}
+
+.secondary {
+  background-color: transparent;
+  border: 2px solid #9098a1;
+  color: #9098a1;
+  border-radius: 6px;
+}
+
+.secondary:hover {
+  color: #798087;
+  border-color: #798087;
+}
+
+.warning {
+  background-color: transparent;
+  color: #eb5757;
+  border-color: transparent;
+}
+
+.warning:hover {
+  background-color: transparent;
+  color: #eb5757;
+  border-color: transparent;
+  opactiy: 0.8;
+}
+
+.button-icon-large {
+  font-size: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0px;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+.plant-item-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 12px 16px 12px 32px;
+}
+
+.plant-list-item {
+  background-color: white;
+  border-radius: 25px;
+  margin: 20px 0px;
+  box-shadow: 0px 3.5px 7px rgba(0, 0, 0, 0.12);
+}
+
+.form-wrap {
+  padding: 0px 32px 4px;
+}
+
+.plant-name {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.watering {
+  display: flex;
+  align-items: center;
+}
+
+.watering > span {
+  margin: 0px 8px;
+}
+
+.watering-amount {
+  font-weight: 700;
+}
+
+.watering-icon {
+  font-size: 20px;
+  color: #2f80ed;
+}
+
+.badge {
+  padding: 8px 12px;
+  border-radius: 24px;
+  line-height: 1em;
+}
+
+.Outdoor {
+  background-color: rgba(77, 189, 51, 0.3);
+  color: #19ab4f;
+}
+
+.Indoor {
+  background-color: rgba(253, 204, 74, 0.5);
+  color: #ff9900;
+}
+
+.chevron-down-icon {
+  font-size: 20px;
+  color: #404e4d;
+}
+
+.reminder-card {
+  display: flex;
+  border-radius: 18px;
+  background-color: white;
+  box-shadow: 0px 3.5px 7px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.image-wrap {
+  width: 50%;
+}
+
+.image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 750px) {
+  .image-wrap {
+    display: none;
+  }
+
+  .reminder-card {
+    box-shadow: none;
+    overflow: auto;
+  }
+
+  .content {
+    padding: 5px;
+  }
+}
+
+.required {
+  color: #eb5757;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  height: 48px;
+  border-color: #545d69;
+  border-width: 1px;
+  padding-left: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border-style: solid;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="date"]:active,
+input[type="date"]:focus-visible,
+select:focus,
+textarea:focus {
+  border-color: #4dbd33;
+  border-width: 2px;
+  outline: none;
+}
+
+textarea {
+  border-color: #545d69;
+  padding-left: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  font-family: "Lato";
+}
+
+label {
+  color: #404e4d;
+  font-size: 16px;
+}
+
+.list-wrapper {
+  margin: 40px 0px;
+}
+
+.error {
+  padding: 20px;
+  color: #eb5757;
+  background-color: #f9b5b5;
+  margin: 20px 0px;
+  font-weight: 700;
+}
+
+.message {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.success {
+  background-color: #caecc2;
+  color: green;
+  font-weight: 700;
 }

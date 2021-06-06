@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import MessageBar from "./components/MessageBar";
+import Reminder from "./components/Reminder";
+import AddPlant from "./components/AddPlant";
+import PlantList from "./components/PlantList";
+import { getNextWatering } from "./utils/nextWatering";
+import { useState, useEffect } from "react";
+import { setLocalStorage, getLocalStorage } from "./utils/LocalStorage";
 
 function App() {
+  const [plants, setPlants] = useState(getLocalStorage());
+  const [showAddPlant, setShowAddPlant] = useState(false);
+
+  const addPlant = (plant) => {
+    // const id = Math.floor(Math.random() * 10000) + 1;
+    // const id = plants.length + 1;
+    console.log(plant.id);
+    // const newPlant = { id, ...plant };
+    setPlants([...plants, plant]);
+  };
+
+  const editPlant = (plantToEdit) => {
+    setPlants(
+      plants.map((plant) => (plant.id === plantToEdit.id ? plantToEdit : plant))
+    );
+  };
+
+  const deletePlant = (id) => {
+    setPlants(plants.filter((plant) => plant.id !== id));
+  };
+
+  useEffect(() => setLocalStorage(plants));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <Header onAddClick={() => setShowAddPlant(!showAddPlant)} />
+
+      <AddPlant
+        showAddPlant={showAddPlant}
+        cancelForm={() => setShowAddPlant(!showAddPlant)}
+        onAdd={addPlant}
+      />
+
+      <Reminder plants={plants} onDone={editPlant} />
+
+      <PlantList
+        plants={plants}
+        nextWatering={getNextWatering}
+        onEdit={editPlant}
+        onDelete={deletePlant}
+        noPlants={() => setShowAddPlant(true)}
+        showAddForm={showAddPlant}
+      />
     </div>
   );
 }
