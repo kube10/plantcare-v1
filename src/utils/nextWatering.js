@@ -1,3 +1,24 @@
+export const getNextWateringDate = (plant) => {
+  const last = new Date(plant.watering.lastWatering);
+  const interval = plant.watering.intervalDays;
+  const next = new Date();
+
+  next.setDate(last.getDate() + interval);
+  return next;
+};
+
+export const sortByNextWateringDate = (plants) => {
+  const sortedPlants = plants.sort((a, b) => {
+    const a_next = getNextWateringDate(a);
+
+    const b_next = getNextWateringDate(b);
+
+    return a_next - b_next;
+  });
+
+  return sortedPlants;
+};
+
 export const getNextWatering = (plant) => {
   const weekdays = [
     "Sunday",
@@ -23,16 +44,11 @@ export const getNextWatering = (plant) => {
     "November",
     "December",
   ];
-
-  const last = new Date(plant.watering.lastWatering);
-  const interval = plant.watering.intervalDays;
-  const next = new Date();
+  const next = getNextWateringDate(plant);
   const now = new Date();
 
   const tomorrow = new Date();
   tomorrow.setDate(now.getDate() + 1);
-
-  next.setDate(last.getDate() + interval);
 
   let string =
     weekdays[next.getDay()] +

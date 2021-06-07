@@ -1,0 +1,40 @@
+{
+  "plants": [
+    {
+      "id": 9974,
+      "name": "Calathea",
+      "type": "Outdoor",
+      "watering": {
+        "amount": "30ml",
+        "intervalDays": 2,
+        "lastWatering": "2021-06-07"
+      },
+      "sunlight": "",
+      "notes": ""
+    },
+    {
+      "id": 892,
+      "name": "Monstera Deliciosa V2",
+      "type": "Indoor",
+      "watering": {
+        "amount": "30ml",
+        "intervalDays": 2,
+        "lastWatering": "2021-06-07"
+      },
+      "sunlight": "",
+      "notes": ""
+    },
+    {
+      "id": 3073,
+      "name": "Monstera Deliciosa 3",
+      "type": "Indoor",
+      "watering": {
+        "amount": "30ml",
+        "intervalDays": 2,
+        "lastWatering": "2021-06-07T09:10:33.452Z"
+      },
+      "sunlight": "",
+      "notes": ""
+    }
+  ]
+}

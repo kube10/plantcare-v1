@@ -1,6 +1,7 @@
 import Form from "./Form";
 import { useState } from "react";
 import MessageBar from "./MessageBar";
+import FadeIn from "./animations/FadeIn";
 
 const AddPlant = ({ showAddPlant, cancelForm, onAdd }) => {
   const [message, setMessage] = useState();
@@ -13,16 +14,20 @@ const AddPlant = ({ showAddPlant, cancelForm, onAdd }) => {
   return (
     <div>
       {message && (
-        <MessageBar message={message.text} className={message.className} />
+        <FadeIn duration={450}>
+          <MessageBar message={message.text} className={message.className} />
+        </FadeIn>
       )}
       {showAddPlant && (
         <>
           <h3>Add a new plant</h3>
-          <Form
-            onCancel={cancelForm}
-            onSubmit={onAdd}
-            setMessage={newMessage}
-          />
+          <FadeIn duration={450}>
+            <Form
+              onCancel={cancelForm}
+              onSubmit={onAdd}
+              setMessage={newMessage}
+            />
+          </FadeIn>
         </>
       )}
     </div>

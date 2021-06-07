@@ -1,11 +1,13 @@
 import Form from "./Form";
 import { Icon, InlineIcon } from "@iconify/react";
+import Button from "./Button";
 import wateringCanOutline from "@iconify/icons-mdi/watering-can-outline";
 import chevronDown from "@iconify/icons-mdi/chevron-down";
 import { useState } from "react";
 
 const ListItem = ({
   plant,
+  onDone,
   slim,
   nextWatering,
   onEdit,
@@ -29,6 +31,13 @@ const ListItem = ({
           <span className="watering-amount">{plant.watering.amount}</span>
         </div>
         <span className={`type badge ${plant.type}`}>{plant.type}</span>
+        {slim && (
+          <Button
+            type="primary no-margin"
+            text="Done!"
+            action={() => onDone(plant)}
+          />
+        )}
         {!slim && <Icon className="chevron-down-icon" icon={chevronDown} />}
       </div>
       {!slim && showEditForm && (

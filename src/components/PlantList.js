@@ -1,8 +1,10 @@
 import ListItem from "./ListItem";
 import { useState } from "react";
+import { sortByNextWateringDate } from "../utils/nextWatering";
 import MessageBar from "./MessageBar";
 import Button from "./Button";
 import EmptyListState from "./EmptyListState";
+import FadeIn from "./animations/FadeIn";
 
 const PlantList = ({
   plants,
@@ -19,7 +21,8 @@ const PlantList = ({
       setMessage(null);
     }, 3000);
   };
-  const listItems = plants.map((plant) => {
+
+  const listItems = sortByNextWateringDate(plants).map((plant) => {
     return (
       <ListItem
         onEdit={onEdit}
@@ -42,7 +45,9 @@ const PlantList = ({
         </h3>
       )}
       {message && (
-        <MessageBar message={message.text} className={message.className} />
+        <FadeIn>
+          <MessageBar message={message.text} className={message.className} />
+        </FadeIn>
       )}
       {listItems}
     </div>
